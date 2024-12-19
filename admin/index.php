@@ -1,3 +1,38 @@
+<?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+require("../lib/drive.php");  
+$con = $pdo;
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $email = $_POST['email'];
+    $password = md5($_POST['password']); 
+
+    $sql = "SELECT * FROM admin WHERE AdminEmail = :email AND AdminPassword = :password";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+    $stmt->bindParam(':password', $password, PDO::PARAM_STR);
+    $stmt->execute();
+    
+    if ($stmt->rowCount() > 0) {
+        $admin = $stmt->fetch(PDO::FETCH_ASSOC);
+        $_SESSION['loggedin'] = true;
+        $_SESSION['AdminID'] = $admin['AdminID'];
+        $_SESSION['AdminFName'] = $admin['AdminFName'];
+        $_SESSION['AdminLName'] = $admin['AdminLName'];
+        $_SESSION['AdminEmail'] = $admin['AdminEmail'];
+        $_SESSION['AdminPhone'] = $admin['AdminPhone'];
+        $_SESSION['AdminManager'] = $admin['AdminManager'];
+        header("Location: home.php");
+        exit();
+    } else {
+        $error_message = "Invalid email or password.";
+    }
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,15 +58,22 @@
                 </div>
               </div>
               <h6 class="fw-light text-center mb-4">Sign in to continue.</h6>
-              <form class="pt-3">
+
+              <!-- Display error message if login fails -->
+              <?php if (isset($error_message)) { ?>
+                <div class="alert alert-danger"><?php echo $error_message; ?></div>
+              <?php } ?>
+
+              <!-- Login form -->
+              <form method="POST" action="">
                 <div class="form-group">
-                  <input type="email" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Enter your username">
+                  <input type="email" class="form-control form-control-lg" name="email" placeholder="Enter your username" required>
                 </div>
                 <div class="form-group">
-                  <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Enter your password">
+                  <input type="password" class="form-control form-control-lg" name="password" placeholder="Enter your password" required>
                 </div>
                 <div class="mt-3 d-grid gap-2">
-                  <a class="btn btn-primary btn-lg fw-medium auth-form-btn" href="index.php">SIGN IN</a>
+                  <button type="submit" class="btn btn-primary btn-lg fw-medium auth-form-btn">SIGN IN</button>
                 </div>
                 <div class="my-2 d-flex justify-content-between align-items-center">
                   <div class="form-check">
@@ -50,6 +92,7 @@
       </div>
     </div>
   </div>
+  
   <script src="assets/vendors/js/vendor.bundle.base.js"></script>
   <script src="assets/js/off-canvas.js"></script>
   <script src="assets/js/hoverable-collapse.js"></script>
