@@ -1,13 +1,16 @@
 <?php
 require("lib/header.php");
+
 if (!isset($_SESSION['loggedin'])) {
     echo "<script>window.location='../../logout.php';</script>";
 }
 @require("../lib/drive.php"); 
 $con = $pdo;
+
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-    $sql = "DELETE FROM Packages WHERE package_id = :id";
+    $sql = "DELETE FROM AboutUs WHERE AboutId = :id";
+    
     try {
         $stmt = $con->prepare($sql);
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
@@ -24,5 +27,6 @@ if (isset($_GET['id'])) {
 } else {
     echo "Invalid request.";
 }
+
 $con = null;
 ?>
