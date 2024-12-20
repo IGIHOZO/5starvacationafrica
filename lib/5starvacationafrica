@@ -1,0 +1,44 @@
+server {
+    server_name 5starvacationafrica.com www.5starvacationafrica.com;
+
+    root /var/www/5starvacationafrica;
+    index index.php index.html index.htm;
+
+    # Log files (optional)
+    access_log /var/log/nginx/5starvacationafrica_access.log;
+    error_log /var/log/nginx/5starvacationafrica_error.log;
+
+    # Main location block
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    # PHP Processing (if using PHP-FPM)
+    location ~ \.php$ {
+        try_files $uri =404;
+        fastcgi_pass unix:/run/php/php8.3-fpm.sock;  # Adjust PHP version as needed
+        fastcgi_index index.php;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        include fastcgi_params;
+        #add_header Content-Security-Policy "script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' 'inline-speculation-rules';";
+    }
+
+    # SSL Configuration (handled globally by Certbot)
+    listen 443 ssl;
+    ssl_certificate /etc/letsencrypt/live/5starvacationafrica.com/fullchain.pem;  # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/5starvacationafrica.com/privkey.pem;  # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf;  # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;  # managed by Certbot
+}
+
+server {
+    listen 80;
+    server_name 5starvacationafrica.com;
+    return 301 https://www.5starvacationafrica.com$request_uri;
+}
+
+server {
+    listen 80;
+    server_name www.5starvacationafrica.com;
+    return 301 https://$host$request_uri;
+}
