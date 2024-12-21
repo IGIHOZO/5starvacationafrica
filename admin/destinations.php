@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Handle image upload
     $imagePath = null;
     if (isset($_FILES['destinationImage']) && $_FILES['destinationImage']['error'] == UPLOAD_ERR_OK) {
-        $uploadsDir = "../img/images/destinations/";
+        $uploadsDir = "img/images/destinations/";
         if (!is_dir($uploadsDir)) {
             mkdir($uploadsDir, 0777, true);
         }

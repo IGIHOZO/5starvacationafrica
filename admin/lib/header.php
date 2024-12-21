@@ -228,6 +228,8 @@ require("../lib/drive.php");
                 <li class="nav-item"><a class="nav-link" href="destinations.php">Destinations</a></li>
                 <li class="nav-item"><a class="nav-link" href="landing-page.php">Landing Page</a></li>                
                 <li class="nav-item"><a class="nav-link" href="about-us.php">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="guides.php">Guides</a></li>
+                <li class="nav-item"><a class="nav-link" href="testimonies.php">Testimonies</a></li>
               </ul>
             </div>
           </li>          

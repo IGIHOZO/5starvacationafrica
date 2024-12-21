@@ -44,8 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['responseMessage'] = '<div class="alert alert-danger">Failed to add service.</div>';
     }
 
-    // header("Location: " . $_SERVER['PHP_SELF']);
-    // echo "<script>windows.location=$_SERVER['PHP_SELF']</script>";
+
     echo "<script>window.location = '{$_SERVER['PHP_SELF']}';</script>";
 
 

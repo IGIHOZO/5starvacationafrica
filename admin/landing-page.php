@@ -3,6 +3,7 @@ require("lib/header.php");
 
 if (!isset($_SESSION['loggedin'])) {
     echo "<script>window.location='../../logout.php';</script>";
+    exit;
 }
 @require("../lib/drive.php");
 
@@ -12,25 +13,32 @@ $responseMessage = '';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $landingTitle = $_POST['landingTitle'] ?? '';
     $landingDescription = $_POST['landingDescription'] ?? '';
-    $status = 'active';  // Default status is active
+    $status = 'active'; // Default status is active
     $dateCreated = date("Y-m-d H:i:s");
     $imagePath = null;
 
+    // Handle file upload
     if (isset($_FILES['landingImage']) && $_FILES['landingImage']['error'] == UPLOAD_ERR_OK) {
         $uploadsDir = "../img/images/landing_pages/";
         if (!is_dir($uploadsDir)) {
-            mkdir($uploadsDir, 0777, true);
+            if (!mkdir($uploadsDir, 0777, true)) {
+                die('Failed to create upload directory.');
+            }
         }
 
         $imageTmpName = $_FILES['landingImage']['tmp_name'];
-        $imageName = time() . "_" . uniqid();
-        $imagePath = $uploadsDir . $imageName;
+        $imageName = time() . "_" . uniqid() . "." . pathinfo($_FILES['landingImage']['name'], PATHINFO_EXTENSION);
+        $fullImagePath = $uploadsDir . $imageName;
 
-        if (!move_uploaded_file($imageTmpName, $imagePath)) {
-            $imagePath = null;
+        if (move_uploaded_file($imageTmpName, $fullImagePath)) {
+            // Adjust path for storing in the database
+            $imagePath = "img/images/landing_pages/" . $imageName;
+        } else {
+            die('Failed to move uploaded file.');
         }
     }
 
+    // Insert into the database
     $stmt = $con->prepare("INSERT INTO LandingPage (LandingTitle, LandingDescription, LandingImage, LandingStatus, CreatedAt, UpdatedAt)
                           VALUES (:title, :description, :image, :status, :created_at, :updated_at)");
 
@@ -50,6 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     exit;
 }
 
+// Display response message if available
 if (isset($_SESSION['responseMessage'])) {
     $responseMessage = $_SESSION['responseMessage'];
     unset($_SESSION['responseMessage']);

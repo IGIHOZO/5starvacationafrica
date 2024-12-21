@@ -5,7 +5,7 @@ ini_set('display_startup_errors', '1');
 error_reporting(E_ALL);
 $host = 'localhost';
 $dbname = '5startvacationafrica';
-$username = 'Igihozo';
+$username = 'root';
 $password = 'Igihozo!#07';
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
