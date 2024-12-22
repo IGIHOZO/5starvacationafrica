@@ -2,7 +2,7 @@
 require("lib/header.php");
 
 if (!isset($_SESSION['loggedin'])) {
-    echo "<script>window.location='../../logout.php';</script>";
+    echo "<script>window.location = '../../logout.php';</script>";
 }
 @require("../lib/drive.php");
 
@@ -102,9 +102,9 @@ if (isset($_SESSION['responseMessage'])) {
                                     <th>About Us Title</th>
                                     <th>Body</th>
                                     <th>Status</th>
-                                    <th>Actions</th>
+                                     <th>Actions</th>
                                 </tr>
-                            </thead>
+                           </thead>
                             <tbody>
                                 <?php
                                 $stmt = $con->query("SELECT * FROM AboutUs ORDER BY AboutId DESC");

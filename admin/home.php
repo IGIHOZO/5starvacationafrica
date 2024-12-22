@@ -1,14 +1,14 @@
 <?php 
 require("lib/header.php");
 if (!isset($_SESSION['loggedin'])) {
-  echo "<script>window.location('../../logout.php');</script>";
+  echo "<script>window.location = '../../logout.php';</script>";
 }
 ?>
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
 
-          <div class="row">
+          <!-- <div class="row">
             <div class="col-xl-6 grid-margin stretch-card flex-column">
                 <h5 class="mb-2 text-titlecase mb-4">Status statistics</h5>
               <div class="row">
@@ -410,7 +410,7 @@ if (!isset($_SESSION['loggedin'])) {
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
 
         </div>
         <!-- content-wrapper ends -->
@@ -419,8 +419,8 @@ if (!isset($_SESSION['loggedin'])) {
             <div class="card">
                 <div class="card-body">
                     <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2024 <a href="https://www.bootstrapdash.com/" class="text-muted" target="_blank">Bootstrapdash</a>. All rights reserved.</span>
-                        <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center text-muted">Hand-crafted & made with <i class="typcn typcn-heart-full-outline text-danger"></i></span>
+                        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2024 <a href="https://5starvacationafrica.com/" class="text-muted" target="_blank">5*StarVacationAfrica</a>. All rights reserved.</span>
+                        <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center text-muted">Developed By  <i class="typcn typcn-heart-full-outline text-danger"></i><a href="seveeen.rw" target="blank"><b>Seveeen</b></a></span>
                     </div>
                 </div>    
             </div>        

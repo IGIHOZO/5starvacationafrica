@@ -12,7 +12,7 @@ $landingData = $stmt->fetch(PDO::FETCH_ASSOC);
 
 // Set default values if no active record is found
 $landingTitle = $landingData['LandingTitle'] ?? "Enjoy Your Vacation With Us";
-$landingDescription = $landingData['LandingDescription'] ?? "Tempor erat elitr rebum at clita diam amet diam et eos erat ipsum lorem sit";
+$landingDescription = $landingData['LandingDescription'] ?? "No data available";
 $landingImage = $landingData['LandingImage'] ?? "bg-hero.jpg"; // Default image if none found
 ?>
 

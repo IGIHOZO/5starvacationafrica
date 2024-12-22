@@ -75,9 +75,9 @@ error_reporting(E_ALL);
                             <a href="#Testimonies" class="dropdown-item">Testimonial</a>
                         </div>
                     </div>
-                    <a href="contact.php" class="nav-item nav-link">Contact</a>
+                    <a href="#Contact" class="nav-item nav-link">Contact</a>
                 </div>
-                <a href="register.php" class="btn btn-primary rounded-pill py-2 px-4 mx-2">Register</a>
+                <a href="#" class="btn btn-primary rounded-pill py-2 px-4 mx-2">Register</a>
                 <a href="admin" target="_blank" class="btn btn-outline-secondary rounded-pill py-2 px-4">Login</a>
             </div>
         </nav>

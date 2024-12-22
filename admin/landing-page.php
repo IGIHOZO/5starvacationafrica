@@ -2,7 +2,8 @@
 require("lib/header.php");
 
 if (!isset($_SESSION['loggedin'])) {
-    echo "<script>window.location='../../logout.php';</script>";
+    echo "<script>window.location = '../../logout.php';</script>";
+
     exit;
 }
 @require("../lib/drive.php");
