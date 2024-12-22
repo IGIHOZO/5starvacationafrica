@@ -61,7 +61,7 @@ try {
 
 <div class="container-xxl py-5">
     <div class="container">
-        <div class="row g-5">
+        <div class="row g-5" id="AbouUs">
             <!-- Image Section -->
             <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 400px;">
                 <div class="position-relative h-100">
@@ -105,7 +105,7 @@ $services = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 <!-- Service Start -->
 <div class="container-xxl py-5">
-    <div class="container">
+    <div class="container" id="OurServices">
         <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
             <h6 class="section-title bg-white text-center text-primary px-3">Services</h6>
             <h1 class="mb-5">Our Services</h1>
@@ -147,7 +147,7 @@ $destinations = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 <!-- Destination Start -->
 <div class="container-xxl py-5 destination">
-    <div class="container">
+    <div class="container" id="PopularDestinations">
         <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
             <h6 class="section-title bg-white text-center text-primary px-3">Destination</h6>
             <h1 class="mb-5">Popular Destinations</h1>
@@ -210,7 +210,7 @@ try {
 
     if ($stmt->rowCount() > 0) {
         echo '<div class="container-xxl py-5">';
-        echo '<div class="container">';
+        echo '<div class="container" id="AwesomePackages">';
         echo '<div class="text-center wow fadeInUp" data-wow-delay="0.1s">';
         echo '<h6 class="section-title bg-white text-center text-primary px-3">Packages</h6>';
         echo '<h1 class="mb-5">Awesome Packages</h1>';
@@ -230,7 +230,7 @@ try {
             echo '<div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">';
             echo '<div class="package-item">';
             echo '<div class="overflow-hidden">';
-            echo '<img class="img-fluid" src="uploads/packages/' . $image . '" alt="' . $name . '">';
+            echo '<img class="img-fluid" src="packages/' . $image . '" alt="' . $name . '">';
             echo '</div>';
             echo '<div class="d-flex border-bottom">';
             echo '<small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker-alt text-primary me-2"></i>' . $countryName . '</small>';
@@ -271,7 +271,7 @@ try {
 
     <!-- Booking Start -->
     <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
-        <div class="container">
+        <div class="container" id="OnlineBooking">
             <div class="booking p-5">
                 <div class="row g-5 align-items-center">
                     <div class="col-md-6 text-white">
@@ -393,7 +393,7 @@ $guides = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 <!-- Team Start -->
 <div class="container-xxl py-5">
-    <div class="container">
+    <div class="container" id="MeetOurGuide">
         <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
             <h6 class="section-title bg-white text-center text-primary px-3">Travel Guide</h6>
             <h1 class="mb-5">Meet Our Guide</h1>
@@ -432,7 +432,7 @@ $guides = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 <?php
 // Assuming $con is the PDO connection object
-$query = "SELECT TestimonyPerson, TestimonyLocation, TestimonyBody, TestimonyCreatedAt 
+$query = "SELECT TestimonyPerson, TestimonyLocation, TestimonyBody, PersonPicture 
           FROM Testimony 
           WHERE TestimonyStatus = 1"; // Filter by active testimonials
 $stmt = $con->prepare($query);
@@ -442,7 +442,7 @@ $testimonials = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 <!-- Testimonial Start -->
 <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
-    <div class="container">
+    <div class="container" id="Testimonies">
         <div class="text-center">
             <h6 class="section-title bg-white text-center text-primary px-3">Testimonial</h6>
             <h1 class="mb-5">Our Clients Say!!!</h1>
@@ -450,21 +450,30 @@ $testimonials = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <div class="owl-carousel testimonial-carousel position-relative">
             <?php foreach ($testimonials as $testimonial): ?>
                 <div class="testimonial-item bg-white text-center border p-4">
-                    <!-- For now, using a placeholder image -->
-                    <img class="bg-white rounded-circle shadow p-1 mx-auto mb-3" 
-     src="<?= !empty($testimonial['PersonPicture']) ? $testimonial['PersonPicture'] : 'images/default-image.jpg'; ?>" 
-     style="width: 80px; height: 80px;">
+                    <!-- Person Picture -->
+                    <img 
+                        class="bg-white rounded-circle shadow p-1 mx-auto mb-3" 
+                        src="<?= !empty($testimonial['PersonPicture']) 
+                                ? "img/images/testimonies/".htmlspecialchars($testimonial['PersonPicture'], ENT_QUOTES, 'UTF-8') 
+                                : 'img/images/user.png'; ?>" 
+                        alt="Person Picture" 
+                        style="width: 80px; height: 80px;">
 
+                    <!-- Person Name -->
+                    <h5 class="mb-0"><?= htmlspecialchars($testimonial['TestimonyPerson'], ENT_QUOTES, 'UTF-8'); ?></h5>
 
-                    <h5 class="mb-0"><?php echo htmlspecialchars($testimonial['TestimonyPerson']); ?></h5>
-                    <p><?php echo htmlspecialchars($testimonial['TestimonyLocation']); ?></p>
-                    <p class="mt-2 mb-0"><?php echo nl2br(htmlspecialchars($testimonial['TestimonyBody'])); ?></p>
+                    <!-- Location -->
+                    <p><?= htmlspecialchars($testimonial['TestimonyLocation'], ENT_QUOTES, 'UTF-8'); ?></p>
+
+                    <!-- Testimonial Body -->
+                    <p class="mt-2 mb-0"><?= nl2br(htmlspecialchars($testimonial['TestimonyBody'], ENT_QUOTES, 'UTF-8')); ?></p>
                 </div>
             <?php endforeach; ?>
         </div>
     </div>
 </div>
 <!-- Testimonial End -->
+
 
 
         

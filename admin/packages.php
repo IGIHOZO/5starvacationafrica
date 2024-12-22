@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Handle image upload
     $imagePath = null;
     if (isset($_FILES['packageImage']) && $_FILES['packageImage']['error'] == UPLOAD_ERR_OK) {
-        $uploadsDir = "../img/images/Packages/";
+        $uploadsDir = "../img/images/packages/";
         if (!is_dir($uploadsDir)) {
             mkdir($uploadsDir, 0777, true);
         }
@@ -172,7 +172,6 @@ if (isset($_SESSION['responseMessage'])) {
                             </thead>
                             <tbody>
                                 <?php
-                                // Display added Packages
                                 $stmt = $con->query("SELECT * FROM Packages ORDER BY package_id DESC");
                                 $index = 1;
                                 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
