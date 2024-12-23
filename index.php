@@ -92,8 +92,6 @@ try {
 </div>
 <!-- About End -->
 
-
-
 <?php
 // Assuming $con is your PDO connection variable
 $query = "SELECT ServiceName, ServiceDescription, ServiceIcon FROM Services WHERE ServiceStatus = 1 ORDER BY RAND()"; // You can filter by active services (ServiceStatus = 1)

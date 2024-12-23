@@ -1,135 +1,132 @@
 <?php 
-require ("lib/header.php");
+require("lib/header.php");
+@require("lib/drive.php");
+
+$con = $pdo; // Ensure $pdo is defined and connected
+
+// Fetch landing page data
+$sql = "SELECT LandingTitle, LandingDescription, LandingImage FROM LandingPage WHERE LandingStatus = 'active' ORDER BY RAND() LIMIT 1";
+$stmt = $con->prepare($sql);
+$stmt->execute();
+$landingData = $stmt->fetch(PDO::FETCH_ASSOC);
+
+// Set default values if no active record is found
+$landingTitle = $landingData['LandingTitle'] ?? "Enjoy Your Vacation With Us";
+$landingDescription = $landingData['LandingDescription'] ?? "No data available";
+$landingImage = $landingData['LandingImage'] ?? "bg-hero.jpg"; // Default image if none found
 ?>
-        <div class="container-fluid bg-primary py-5 mb-5 hero-header">
-            <div class="container py-5">
-                <div class="row justify-content-center py-5">
-                    <div class="col-lg-10 pt-lg-5 mt-lg-5 text-center">
-                        <h1 class="display-3 text-white animated slideInDown">Booking</h1>
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb justify-content-center">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item"><a href="#">Pages</a></li>
-                                <li class="breadcrumb-item text-white active" aria-current="page">Booking</li>
-                            </ol>
-                        </nav>
-                    </div>
+
+<div class="container-fluid bg-primary py-5 mb-5 hero-header" style="background: linear-gradient(rgba(20, 20, 31, .7), rgba(20, 20, 31, .7)), url('img/images/packages.png'); background-size: cover; background-position: center;">
+    <div class="container py-5">
+        <div class="row justify-content-center py-5">
+            <div class="col-lg-10 pt-lg-5 mt-lg-5 text-center">
+                <h1 class="display-3 text-white mb-3 animated slideInDown">Tailored Travel Packages for Every Explorer</h1>
+                <p class="fs-4 text-white mb-4 animated slideInDown">Choose from a Variety of Options Designed to Match Your Dream Journey.</p>
+                <div class="position-relative w-75 mx-auto animated slideInDown">
+                    <input class="form-control border-0 rounded-pill w-100 py-3 ps-4 pe-5" type="text" placeholder="Eg: Rwanda">
+                    <button type="button" class="btn btn-primary rounded-pill py-2 px-4 position-absolute top-0 end-0 me-2" style="margin-top: 7px;">Search</button>
                 </div>
             </div>
         </div>
     </div>
+</div>
+
     <!-- Navbar & Hero End -->
 
 
-    <!-- Process Start -->
-    <div class="container-xxl py-5">
-        <div class="container">
-            <div class="text-center pb-4 wow fadeInUp" data-wow-delay="0.1s">
-                <h6 class="section-title bg-white text-center text-primary px-3">Process</h6>
-                <h1 class="mb-5">3 Easy Steps</h1>
-            </div>
-            <div class="row gy-5 gx-4 justify-content-center">
-                <div class="col-lg-4 col-sm-6 text-center pt-4 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="position-relative border border-primary pt-5 pb-4 px-4">
-                        <div class="d-inline-flex align-items-center justify-content-center bg-primary rounded-circle position-absolute top-0 start-50 translate-middle shadow" style="width: 100px; height: 100px;">
-                            <i class="fa fa-globe fa-3x text-white"></i>
-                        </div>
-                        <h5 class="mt-4">Choose A Destination</h5>
-                        <hr class="w-25 mx-auto bg-primary mb-1">
-                        <hr class="w-50 mx-auto bg-primary mt-0">
-                        <p class="mb-0">Tempor erat elitr rebum clita dolor diam ipsum sit diam amet diam eos erat ipsum et lorem et sit sed stet lorem sit</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6 text-center pt-4 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="position-relative border border-primary pt-5 pb-4 px-4">
-                        <div class="d-inline-flex align-items-center justify-content-center bg-primary rounded-circle position-absolute top-0 start-50 translate-middle shadow" style="width: 100px; height: 100px;">
-                            <i class="fa fa-dollar-sign fa-3x text-white"></i>
-                        </div>
-                        <h5 class="mt-4">Pay Online</h5>
-                        <hr class="w-25 mx-auto bg-primary mb-1">
-                        <hr class="w-50 mx-auto bg-primary mt-0">
-                        <p class="mb-0">Tempor erat elitr rebum clita dolor diam ipsum sit diam amet diam eos erat ipsum et lorem et sit sed stet lorem sit</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6 text-center pt-4 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="position-relative border border-primary pt-5 pb-4 px-4">
-                        <div class="d-inline-flex align-items-center justify-content-center bg-primary rounded-circle position-absolute top-0 start-50 translate-middle shadow" style="width: 100px; height: 100px;">
-                            <i class="fa fa-plane fa-3x text-white"></i>
-                        </div>
-                        <h5 class="mt-4">Fly Today</h5>
-                        <hr class="w-25 mx-auto bg-primary mb-1">
-                        <hr class="w-50 mx-auto bg-primary mt-0">
-                        <p class="mb-0">Tempor erat elitr rebum clita dolor diam ipsum sit diam amet diam eos erat ipsum et lorem et sit sed stet lorem sit</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Process Start -->
+<!-- About Start -->
+<?php
+// Fetch data from the database using the pre-defined $con PDO connection
+try {
+    $stmt = $con->prepare("SELECT AboutTitle, AboutBody, AboutBullets, AboutImage FROM AboutUs WHERE AboutStatus = 'active' ORDER BY RAND() LIMIT 1");
+    $stmt->execute();
+    $about = $stmt->fetch(PDO::FETCH_ASSOC);
 
+    if ($about) {
+        $aboutTitle = $about['AboutTitle'];
+        $aboutBody = $about['AboutBody'];
+        $aboutBullets = explode("\n", $about['AboutBullets']); // Assuming bullets are stored line by line
+        $aboutImage = $about['AboutImage'];
+    } else {
+        // Default content if no active record is found
+        $aboutTitle = "Welcome to 5StarVacationAfrica";
+        $aboutBody = "Content coming soon.";
+        $aboutBullets = [];
+        $aboutImage = "default.jpg"; // Fallback image
+    }
+} catch (PDOException $e) {
+    die("Error fetching AboutUs data: " . $e->getMessage());
+}
+?>
 
-    <!-- Booking Start -->
-    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
-        <div class="container">
-            <div class="booking p-5">
-                <div class="row g-5 align-items-center">
-                    <div class="col-md-6 text-white">
-                        <h6 class="text-white text-uppercase">Booking</h6>
-                        <h1 class="text-white mb-4">Online Booking</h1>
-                        <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
-                        <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
-                        <a class="btn btn-outline-light py-3 px-5 mt-2" href="">Read More</a>
-                    </div>
-                    <div class="col-md-6">
-                        <h1 class="text-white mb-4">Book A Tour</h1>
-                        <form>
-                            <div class="row g-3">
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control bg-transparent" id="name" placeholder="Your Name">
-                                        <label for="name">Your Name</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="email" class="form-control bg-transparent" id="email" placeholder="Your Email">
-                                        <label for="email">Your Email</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating date" id="date3" data-target-input="nearest">
-                                        <input type="text" class="form-control bg-transparent datetimepicker-input" id="datetime" placeholder="Date & Time" data-target="#date3" data-toggle="datetimepicker" />
-                                        <label for="datetime">Date & Time</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <select class="form-select bg-transparent" id="select1">
-                                            <option value="1">Destination 1</option>
-                                            <option value="2">Destination 2</option>
-                                            <option value="3">Destination 3</option>
-                                        </select>
-                                        <label for="select1">Destination</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-floating">
-                                        <textarea class="form-control bg-transparent" placeholder="Special Request" id="message" style="height: 100px"></textarea>
-                                        <label for="message">Special Request</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <button class="btn btn-outline-light w-100 py-3" type="submit">Book Now</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Booking Start -->
-        
-<?php 
+<?php
+try {
+    $query = "SELECT p.package_id, p.name, p.intro, p.price, p.days, p.num_persons, c.country_name AS country_name, p.image 
+              FROM Packages p 
+              JOIN countries c ON p.country_id = c.country_id 
+              WHERE p.status = 1 
+              ORDER BY p.created_at DESC";
+    $stmt = $con->prepare($query);
+    $stmt->execute();
+
+    if ($stmt->rowCount() > 0) {
+        echo '<div class="container-xxl py-5">';
+        echo '<div class="container" id="AwesomePackages">';
+        echo '<div class="text-center wow fadeInUp" data-wow-delay="0.1s">';
+        echo '<h6 class="section-title bg-white text-center text-primary px-3">Packages</h6>';
+        echo '<h1 class="mb-5">Awesome Packages</h1>';
+        echo '</div>';
+        echo '<div class="row g-4 justify-content-center">';
+
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $packageId = $row['package_id'];
+            $name = htmlspecialchars($row['name']);
+            $intro = htmlspecialchars($row['intro']);
+            $price = number_format($row['price'], 2);
+            $days = $row['days'];
+            $numPersons = $row['num_persons'];
+            $countryName = htmlspecialchars($row['country_name']);
+            $image = !empty($row['image']) ? htmlspecialchars($row['image']) : 'default.jpg';
+
+            echo '<div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">';
+            echo '<div class="package-item">';
+            echo '<div class="overflow-hidden">';
+            echo '<img class="img-fluid" src="packages/' . $image . '" alt="' . $name . '">';
+            echo '</div>';
+            echo '<div class="d-flex border-bottom">';
+            echo '<small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker-alt text-primary me-2"></i>' . $countryName . '</small>';
+            echo '<small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt text-primary me-2"></i>' . $days . ' days</small>';
+            echo '<small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>' . $numPersons . ' Person</small>';
+            echo '</div>';
+            echo '<div class="text-center p-4">';
+            echo '<h3 class="mb-0">$' . $price . '</h3>';
+            echo '<div class="mb-3">';
+            echo '<small class="fa fa-star text-primary"></small>';
+            echo '<small class="fa fa-star text-primary"></small>';
+            echo '<small class="fa fa-star text-primary"></small>';
+            echo '<small class="fa fa-star text-primary"></small>';
+            echo '<small class="fa fa-star text-primary"></small>';
+            echo '</div>';
+            echo '<p>' . $intro . '</p>';
+            echo '<div class="d-flex justify-content-center mb-2">';
+            echo '<a href="package-details.php?id=' . $packageId . '" class="btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Read More</a>';
+            echo '<a href="book-package.php?id=' . $packageId . '" class="btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Book Now</a>';
+            echo '</div>';
+            echo '</div>';
+            echo '</div>';
+            echo '</div>';
+        }
+
+        echo '</div>';
+        echo '</div>';
+        echo '</div>';
+    } else {
+        echo '<p class="text-center">No packages available at the moment.</p>';
+    }
+} catch (PDOException $e) {
+    echo 'Error: ' . $e->getMessage();
+}
+?>
+    <?php 
 require("lib/footer.php");
 ?>

@@ -63,16 +63,16 @@ error_reporting(E_ALL);
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto py-0">
                     <a href="index.php" class="nav-item nav-link active">Home</a>
-                    <a href="#AbouUs" class="nav-item nav-link">About</a>
-                    <a href="#OurServices" class="nav-item nav-link">Services</a>
-                    <a href="#AwesomePackages" class="nav-item nav-link">Packages</a>
+                    <a href="about.php" class="nav-item nav-link">About</a>
+                    <a href="service.php" class="nav-item nav-link">Services</a>
+                    <a href="package.php" class="nav-item nav-link">Packages</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">More Services</a>
                         <div class="dropdown-menu m-0">
-                            <a href="#PopularDestinations" class="dropdown-item">Destination</a>
-                            <a href="#OnlineBooking" class="dropdown-item">Booking</a>
-                            <a href="#MeetOurGuide" class="dropdown-item">Travel Guides</a>
-                            <a href="#Testimonies" class="dropdown-item">Testimonial</a>
+                            <a href="destination.php" class="dropdown-item">Destination</a>
+                            <a href="booking.php" class="dropdown-item">Booking</a>
+                            <a href="team.php" class="dropdown-item">Travel Guides</a>
+                            <a href="testimonial.php" class="dropdown-item">Testimonial</a>
                         </div>
                     </div>
                     <a href="#Contact" class="nav-item nav-link">Contact</a>
