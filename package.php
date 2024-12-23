@@ -20,19 +20,19 @@ $landingImage = $landingData['LandingImage'] ?? "bg-hero.jpg"; // Default image 
     <div class="container py-5">
         <div class="row justify-content-center py-5">
             <div class="col-lg-10 pt-lg-5 mt-lg-5 text-center">
-                <h1 class="display-3 text-white mb-3 animated slideInDown">Tailored Travel Packages for Every Explorer</h1>
-                <p class="fs-4 text-white mb-4 animated slideInDown">Choose from a Variety of Options Designed to Match Your Dream Journey.</p>
+                <h1 class="display-3 text-white mb-3 animated slideInDown"><?php echo htmlspecialchars($landingTitle); ?></h1>
+                <p class="fs-4 text-white mb-4 animated slideInDown"><?php echo htmlspecialchars($landingDescription); ?></p>
                 <div class="position-relative w-75 mx-auto animated slideInDown">
-                    <input class="form-control border-0 rounded-pill w-100 py-3 ps-4 pe-5" type="text" placeholder="Eg: Rwanda">
-                    <button type="button" class="btn btn-primary rounded-pill py-2 px-4 position-absolute top-0 end-0 me-2" style="margin-top: 7px;">Search</button>
+                    <!-- Updated the form method to GET -->
+                    <form method="GET" action="">
+                        <input class="form-control border-0 rounded-pill w-100 py-3 ps-4 pe-5" type="text" name="destination" placeholder="Eg: Rwanda" value="<?php echo isset($_GET['destination']) ? htmlspecialchars($_GET['destination']) : ''; ?>">
+                        <button type="submit" class="btn btn-primary rounded-pill py-2 px-4 position-absolute top-0 end-0 me-2" style="margin-top: 7px;">Search</button>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-    <!-- Navbar & Hero End -->
-
 
 <!-- About Start -->
 <?php
@@ -43,8 +43,8 @@ try {
     $about = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if ($about) {
-        $aboutTitle = $about['AboutTitle'];
-        $aboutBody = $about['AboutBody'];
+        $aboutTitle = htmlspecialchars($about['AboutTitle']);
+        $aboutBody = htmlspecialchars($about['AboutBody']);
         $aboutBullets = explode("\n", $about['AboutBullets']); // Assuming bullets are stored line by line
         $aboutImage = $about['AboutImage'];
     } else {
@@ -59,6 +59,7 @@ try {
 }
 ?>
 
+<!-- Packages Section Start -->
 <?php
 try {
     $query = "SELECT p.package_id, p.name, p.intro, p.price, p.days, p.num_persons, c.country_name AS country_name, p.image 
@@ -127,6 +128,7 @@ try {
     echo 'Error: ' . $e->getMessage();
 }
 ?>
-    <?php 
+
+<?php 
 require("lib/footer.php");
 ?>
