@@ -68,10 +68,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmtInsert->bindParam(':specialRequest', $specialRequest, PDO::PARAM_STR);
     
     if ($stmtInsert->execute()) {
-        echo "<script>alert('Booking successfully submitted, You will get notified soon.'); window.location.href='package-details.php?id=" . $packageId . "';</script>";
+        echo "<script>
+                alert('Booking successfully submitted. Please proceed with payment.');
+                var form = document.createElement('form');
+                form.method = 'POST';
+                form.action = 'proceed-to-pay.php';
+    
+                var packageIdField = document.createElement('input');
+                packageIdField.type = 'hidden';
+                packageIdField.name = 'packageId';
+                packageIdField.value = '" . $packageId . "';
+                form.appendChild(packageIdField);
+    
+                var totalPriceField = document.createElement('input');
+                totalPriceField.type = 'hidden';
+                totalPriceField.name = 'totalPrice';
+                totalPriceField.value = '" . $totalPrice . "';
+                form.appendChild(totalPriceField);
+    
+                document.body.appendChild(form);
+                form.submit();
+              </script>";
     } else {
         echo "<script>alert('Error submitting booking. Please try again.');</script>";
     }
+    
+    
 }
 ?>
 <!-- Hero Section with text overlay -->
