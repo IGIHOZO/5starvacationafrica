@@ -16,6 +16,50 @@ $landingDescription = $landingData['LandingDescription'] ?? "No data available";
 $landingImage = $landingData['LandingImage'] ?? "bg-hero.jpg"; // Default image if none found
 ?>
 
+
+
+<!-- Video Modal -->
+<div id="videoModal" style="display:none; position: fixed; z-index: 1; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8); justify-content: center; align-items: center; overflow: hidden; display: flex;">
+    <div style="background-color: #fff; padding: 10px; border-radius: 15px; position: relative; width: 60%; height: 68%; display: flex; justify-content: center; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);">
+        <span class="close" style="color: #fff; position: absolute; top: 10px; right: 20px; font-size: 40px; font-weight: bold; cursor: pointer; z-index: 10;">&times;</span>
+        <iframe id="videoFrame" width="100%" height="100%" 
+                src="https://www.youtube.com/embed/3xBHaiQXnBQ?autoplay=1&rel=0&mute=1" 
+                frameborder="0" allow="autoplay; encrypted-media" allowfullscreen
+                style="border-radius: 12px;"></iframe>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        // Automatically show modal on page load
+        $("#videoModal").fadeIn();
+
+        // Unmute video after modal is displayed
+        var videoSrc = $("#videoFrame").attr("src");
+        $("#videoFrame").attr("src", videoSrc.replace("&mute=1", ""));  // Remove mute parameter
+
+        // Close Modal
+        $(".close").click(function() {
+            $("#videoModal").fadeOut();
+            // Pause video when modal is closed
+            $("#videoFrame").attr("src", $("#videoFrame").attr("src"));
+        });
+
+        // Close Modal if clicked outside of the content
+        $(window).click(function(event) {
+            if ($(event.target).is("#videoModal")) {
+                $("#videoModal").fadeOut();
+                $("#videoFrame").attr("src", $("#videoFrame").attr("src"));
+            }
+        });
+    });
+</script>
+
+
+
+
+
 <div class="container-fluid bg-primary py-5 mb-5 hero-header" style="background: linear-gradient(rgba(20, 20, 31, .7), rgba(20, 20, 31, .7)), url('<?php echo htmlspecialchars($landingImage); ?>'); background-size: cover; background-position: center;">
     <div class="container py-5">
         <div class="row justify-content-center py-5">
