@@ -201,7 +201,7 @@ require("../lib/drive.php");
             <a class="nav-link" href="home.php">
               <i class="typcn typcn-device-desktop menu-icon"></i>
               <span class="menu-title">Dashboard</span>
-              <div class="badge badge-danger">new</div>
+              <div class="badge badge-danger">< Back</div>
             </a>
           </li>          
           <li class="nav-item">
@@ -233,7 +233,13 @@ require("../lib/drive.php");
                 <li class="nav-item"><a class="nav-link" href="testimonies.php">Testimonies</a></li>
               </ul>
             </div>
-          </li>          
+          </li>     
+          <li class="nav-item">
+            <a class="nav-link" href="orders.php">
+              <i class="typcn typcn-credit-card menu-icon"></i>
+              <span class="menu-title">Booking Orders</span>
+            </a>
+          </li>       
           <!-- <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
               <i class="typcn typcn-chart-pie-outline menu-icon"></i>
