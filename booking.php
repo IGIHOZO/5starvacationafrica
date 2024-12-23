@@ -72,7 +72,7 @@ try {
                         <p class="mb-4">Whether you’re planning a luxurious safari, a serene beach getaway, or a cultural tour, we ensure your journey is seamless and tailored to perfection.</p>
                         <p class="mb-4">Let us handle the details while you focus on creating memories that will last a lifetime. Book now and embark on an extraordinary African experience like no other!</p>
                         <p><b>Your dream vacation is just a few clicks away.</b></p>
-                        <a class="btn btn-outline-light py-3 px-5 mt-2" href="">Read More</a>
+                        <!-- <a class="btn btn-outline-light py-3 px-5 mt-2" href="">Read More</a> -->
                     </div>
                     <div class="col-md-6">
                         <h1 class="text-white mb-4">Book A Tour</h1>
@@ -98,14 +98,31 @@ try {
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <select class="form-select bg-transparent" id="select1">
-                                            <option value="1">Destination 1</option>
-                                            <option value="2">Destination 2</option>
-                                            <option value="3">Destination 3</option>
+                                        <select class="form-select bg-transparent" id="packages" name="packages">
+                                            <?php
+                                            // Fetch packages from the database
+                                            try {
+                                                $stmt = $con->prepare("SELECT package_id, name, price FROM Packages WHERE status = 1");
+                                                $stmt->execute();
+                                                $packages = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                                                // Loop through the packages and populate the options
+                                                foreach ($packages as $package) {
+                                                    echo "<option value='" . htmlspecialchars($package['package_id']) . "'>" 
+                                                        . htmlspecialchars($package['name']) . " - $" 
+                                                        . number_format($package['price'], 2) . "</option>";
+                                                }
+                                            } catch (PDOException $e) {
+                                                echo "<option value=''>Error loading packages</option>";
+                                                // Optionally log the error or display it for debugging
+                                                error_log($e->getMessage());
+                                            }
+                                            ?>
                                         </select>
-                                        <label for="select1">Destination</label>
+                                        <label for="packages">Packages</label>
                                     </div>
                                 </div>
+
                                 <div class="col-12">
                                     <div class="form-floating">
                                         <textarea class="form-control bg-transparent" placeholder="Special Request" id="message" style="height: 100px"></textarea>
