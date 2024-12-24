@@ -21,7 +21,7 @@ if ($package) {
     $packageName = htmlspecialchars($package['name']);
     $packageIntro = htmlspecialchars($package['intro']);
     $packageDescription = nl2br(htmlspecialchars($package['description']));
-    $price = number_format($package['price'], 2);
+    $price = $package['price'];
     $days = $package['days'];
     $nights = $package['nights'];
     $numPersons = $package['num_persons'];
@@ -143,12 +143,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <div class="form-group">
                         <textarea class="form-control" id="special-request" name="special_request" rows="4" placeholder="Any special requests?"></textarea>
                     </div>
-                    <input type="hidden" name="package_id" value="<?php echo $_GET['id']; ?>">
-                    <input type="hidden" name="unit_price" value="<?php echo $price; ?>">
-                    <input type="hidden" name="total_price" id="total-price-input" value="<?php echo $price; ?>">
+                    <input type="hidden" name="package_id" value="<?=$_GET['id'];?>">
+                    <input type="hidden" name="unit_price" value="<?=$price;?>">
+                    <input type="hidden" name="total_price" id="total-price-input" value="<?=$price;?>">
                     <input type="hidden" name="quantity" value="1" id="quantity-input">
 
-                    <button type="submit" class="btn btn-primary w-100 mt-4 py-3 font-weight-bold">Submit Booking</button>
+                    <button onclick="alert(<?=$price?>)" class="btn btn-primary w-100 mt-4 py-3 font-weight-bold">Submit Booking</button>
                 </form>
             </div>
         </div>

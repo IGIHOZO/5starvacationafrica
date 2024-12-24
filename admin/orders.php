@@ -59,16 +59,17 @@ if (isset($_SESSION['responseMessage'])) {
                                     }
 
                                     echo "<tr'>
-                                        <td>{$index}</td>
-                                        <td>{$row['package_name']}</td>
-                                        <td>{$row['PackageQuantity']}</td>
-                                        <td>{$row['PricePerPackage']}</td>
-                                        <td>{$row['TotalPrice']}</td>
-                                        <td>{$row['TravelerNames']}</td>
-                                        <td>{$row['TravelerEmail']}</td>
-                                        <td>".substr($row['TravelerDate'], 0, 10)."</td>
-                                        <td>{$bookingStatusn}</td>
-                                    </tr>";
+                                    <td>{$index}</td>
+                                    <td>{$row['package_name']}</td>
+                                    <td>{$row['PackageQuantity']}</td>
+                                    <td>" . number_format($row['PricePerPackage'], 2) . "</td> <!-- Format price with 2 decimals --> 
+                                    <td>" . number_format($row['TotalPrice'], 2) . "</td> <!-- Format total price with 2 decimals -->
+                                    <td>{$row['TravelerNames']}</td>
+                                    <td>{$row['TravelerEmail']}</td>
+                                    <td>" . substr($row['TravelerDate'], 0, 10) . "</td>
+                                    <td>{$bookingStatusn}</td>
+                                </tr>";
+                                
 
                                     $index++;
                                 }
