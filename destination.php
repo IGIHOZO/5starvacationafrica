@@ -84,7 +84,7 @@ $destinations = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <?php $destination = $destinations[$i]; ?>
                             <div class="col-lg-<?= $i == 0 ? '12' : '6' ?> col-md-12 wow zoomIn" data-wow-delay="<?= 0.1 + ($i * 0.2) ?>s">
                                 <a class="position-relative d-block overflow-hidden" href="#">
-                                    <img class="img-fluid" src="<?=$destination['DestinationImage'] ?>" alt="<?= htmlspecialchars($destination['DestinationLocation']) ?>">
+                                <img class="img-fluid" src="<?= str_replace('../', '', $destination['DestinationImage']) ?>" alt="<?= htmlspecialchars($destination['DestinationLocation']) ?>">
                                     <div class="bg-white text-danger fw-bold position-absolute top-0 start-0 m-3 py-1 px-2">
                                         <?= htmlspecialchars($destination['DestinationDiscountPercentage']) ?>% OFF
                                     </div>

@@ -59,86 +59,31 @@ try {
 }
 ?>
 
-    <!-- Booking Start -->
-    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
-        <div class="container" id="OnlineBooking">
-            <div class="booking p-5">
-                <div class="row g-5 align-items-center">
-                    <div class="col-md-6 text-white">
-                        <h6 class="text-white text-uppercase">Booking</h6>
-                        <h1 class="text-white mb-4">Online Booking</h1>
-                        <p class="mb-4">Welcome to 5StarVacationAfrica, your gateway to unforgettable African adventures.
-                        Booking your dream vacation has never been easier! Explore the breathtaking landscapes, vibrant cultures, and unique wildlife Africa has to offer, all at your fingertips.</p>
-                        <p class="mb-4">Whether you’re planning a luxurious safari, a serene beach getaway, or a cultural tour, we ensure your journey is seamless and tailored to perfection.</p>
-                        <p class="mb-4">Let us handle the details while you focus on creating memories that will last a lifetime. Book now and embark on an extraordinary African experience like no other!</p>
-                        <p><b>Your dream vacation is just a few clicks away.</b></p>
-                        <!-- <a class="btn btn-outline-light py-3 px-5 mt-2" href="">Read More</a> -->
+<!-- Booking Start -->
+<div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container" id="OnlineBooking">
+        <div class="booking p-5">
+            <div class="row g-5 align-items-center">
+                <div class="col-md-6 text-white">
+                    <h6 class="text-white text-uppercase">Booking</h6>
+                    <h1 class="text-white mb-4">Online Booking</h1>
+                    <p class="mb-4">Welcome to 5StarVacationAfrica, your gateway to unforgettable African adventures. Booking your dream vacation has never been easier! Explore the breathtaking landscapes, vibrant cultures, and unique wildlife Africa has to offer, all at your fingertips.</p>
+                    <p class="mb-4">Whether you’re planning a luxurious safari, a serene beach getaway, or a cultural tour, we ensure your journey is seamless and tailored to perfection.</p>
+                    <p class="mb-4">Let us handle the details while you focus on creating memories that will last a lifetime. Book now and embark on an extraordinary African experience like no other!</p>
+                    <p><b>Your dream vacation is just a few clicks away.</b></p>
+                    <a class="btn btn-outline-light py-3 px-5 mt-2" href="package.php">Book Now</a>
+                </div>
+                <div class="col-md-6">
+                    <h1 class="text-white mb-4">Plan Your Adventure</h1>
+                    <div class="booking-image">
+                        <img src="path/to/your/image.jpg" alt="African Adventure" class="img-fluid rounded-3">
                     </div>
-                    <div class="col-md-6">
-                        <h1 class="text-white mb-4">Book A Tour</h1>
-                        <form>
-                            <div class="row g-3">
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control bg-transparent" id="name" placeholder="Your Name">
-                                        <label for="name">Your Name</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="email" class="form-control bg-transparent" id="email" placeholder="Your Email">
-                                        <label for="email">Your Email</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating date" id="date3" data-target-input="nearest">
-                                        <input type="text" class="form-control bg-transparent datetimepicker-input" id="datetime" placeholder="Date & Time" data-target="#date3" data-toggle="datetimepicker" />
-                                        <label for="datetime">Date & Time</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <select class="form-select bg-transparent" id="packages" name="packages">
-                                            <?php
-                                            // Fetch packages from the database
-                                            try {
-                                                $stmt = $con->prepare("SELECT package_id, name, price FROM Packages WHERE status = 1");
-                                                $stmt->execute();
-                                                $packages = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-                                                // Loop through the packages and populate the options
-                                                foreach ($packages as $package) {
-                                                    echo "<option value='" . htmlspecialchars($package['package_id']) . "'>" 
-                                                        . htmlspecialchars($package['name']) . " - $" 
-                                                        . number_format($package['price'], 2) . "</option>";
-                                                }
-                                            } catch (PDOException $e) {
-                                                echo "<option value=''>Error loading packages</option>";
-                                                // Optionally log the error or display it for debugging
-                                                error_log($e->getMessage());
-                                            }
-                                            ?>
-                                        </select>
-                                        <label for="packages">Packages</label>
-                                    </div>
-                                </div>
-
-                                <div class="col-12">
-                                    <div class="form-floating">
-                                        <textarea class="form-control bg-transparent" placeholder="Special Request" id="message" style="height: 100px"></textarea>
-                                        <label for="message">Special Request</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <button class="btn btn-outline-light w-100 py-3" type="submit">Book Now</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+                    <p class="text-white mt-4">Not sure where to start? Explore the destinations available, or click the button above to begin planning your perfect tour. Our team is ready to assist you in creating a customized African experience.</p>
                 </div>
             </div>
         </div>
     </div>
+</div>
     <!-- Booking Start -->
     <?php 
 require("lib/footer.php");

@@ -3,8 +3,8 @@ require("lib/header.php");
 
 if (!isset($_SESSION['loggedin'])) {
     echo "<script>window.location = '../../logout.php';</script>";
-
 }
+
 @require("../lib/drive.php");
 
 $con = $pdo;
@@ -21,40 +21,53 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Handle image upload
     $imagePath = null;
     if (isset($_FILES['destinationImage']) && $_FILES['destinationImage']['error'] == UPLOAD_ERR_OK) {
-        $uploadsDir = "img/images/destinations/";
+        $uploadsDir = "../img/images/destinations/";
         if (!is_dir($uploadsDir)) {
             mkdir($uploadsDir, 0777, true);
         }
 
         $imageTmpName = $_FILES['destinationImage']['tmp_name'];
-        $imageName = time() . "_" . uniqid();
-        $imagePath = $uploadsDir . $imageName;
+        $imageOriginalName = $_FILES['destinationImage']['name'];
+        $imageExtension = pathinfo($imageOriginalName, PATHINFO_EXTENSION);  // Get the file extension
+        $allowedExtensions = ['jpg', 'jpeg', 'png', 'gif'];  // Allowed file types
 
-        if (!move_uploaded_file($imageTmpName, $imagePath)) {
-            $imagePath = null;
+        // Check if the file extension is allowed
+        if (in_array(strtolower($imageExtension), $allowedExtensions)) {
+            $imageName = time() . "_" . uniqid() . "." . strtolower($imageExtension);  // Add extension to the name
+            $imagePath = $uploadsDir . $imageName;
+
+            // Move the uploaded file to the destination directory
+            if (!move_uploaded_file($imageTmpName, $imagePath)) {
+                $imagePath = null;
+            }
+        } else {
+            // Invalid file type
+            $responseMessage = '<div class="alert alert-danger">Invalid image type. Only JPG, PNG, and GIF files are allowed.</div>';
         }
     }
 
     // Insert into Destinations table
-    $stmt = $con->prepare("INSERT INTO Destinations (DestinationLocation, DestinationDiscountPercentage, DestinationPrice, DestinationImage, DestinationDetails, DestinationStatus, CreatedAt, UpdatedAt)
-                          VALUES (:location, :discountPercentage, :price, :image, :details, :status, :created_at, :updated_at)");
+    if (empty($responseMessage)) {
+        $stmt = $con->prepare("INSERT INTO Destinations (DestinationLocation, DestinationDiscountPercentage, DestinationPrice, DestinationImage, DestinationDetails, DestinationStatus, CreatedAt, UpdatedAt)
+                              VALUES (:location, :discountPercentage, :price, :image, :details, :status, :created_at, :updated_at)");
 
-    $stmt->bindParam(':location', $location);
-    $stmt->bindParam(':discountPercentage', $discountPercentage, PDO::PARAM_INT);
-    $stmt->bindParam(':price', $price, PDO::PARAM_STR);
-    $stmt->bindParam(':image', $imagePath);
-    $stmt->bindParam(':details', $destinationDetails);
-    $stmt->bindParam(':status', $status);
-    $stmt->bindParam(':created_at', $dateCreated);
-    $stmt->bindParam(':updated_at', $dateCreated);
+        $stmt->bindParam(':location', $location);
+        $stmt->bindParam(':discountPercentage', $discountPercentage, PDO::PARAM_INT);
+        $stmt->bindParam(':price', $price, PDO::PARAM_STR);
+        $stmt->bindParam(':image', $imagePath);
+        $stmt->bindParam(':details', $destinationDetails);
+        $stmt->bindParam(':status', $status);
+        $stmt->bindParam(':created_at', $dateCreated);
+        $stmt->bindParam(':updated_at', $dateCreated);
 
-    if ($stmt->execute()) {
-        $_SESSION['responseMessage'] = '<div class="alert alert-success">Destination successfully added!</div>';
-    } else {
-        $_SESSION['responseMessage'] = '<div class="alert alert-danger">Failed to add destination.</div>';
+        if ($stmt->execute()) {
+            $_SESSION['responseMessage'] = '<div class="alert alert-success">Destination successfully added!</div>';
+        } else {
+            $_SESSION['responseMessage'] = '<div class="alert alert-danger">Failed to add destination.</div>';
+        }
+        echo "<script>window.location.href = window.location.href;</script>";
+        exit;
     }
-    echo "<script>window.location.href = window.location.href;</script>";
-    exit;
 }
 
 if (isset($_SESSION['responseMessage'])) {
@@ -139,5 +152,3 @@ if (isset($_SESSION['responseMessage'])) {
         </div>
     </div>
 </div>
-
-

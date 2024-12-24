@@ -1,0 +1,127 @@
+[07-Oct-2024 20:16:25 UTC] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home/iss/public_html/sonidor.iss.rw/header.php on line 2
+[07-Oct-2024 20:16:25 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/iss/public_html/sonidor.iss.rw/dashboard.php:1) in /home/iss/public_html/sonidor.iss.rw/header.php on line 6
+[07-Oct-2024 20:16:57 UTC] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home/iss/public_html/sonidor.iss.rw/header.php on line 2
+[07-Oct-2024 20:16:57 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/iss/public_html/sonidor.iss.rw/dashboard.php:1) in /home/iss/public_html/sonidor.iss.rw/header.php on line 6
+[07-Oct-2024 20:17:29 UTC] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in /home/iss/public_html/sonidor.iss.rw/header.php on line 2
+[07-Oct-2024 20:17:29 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/iss/public_html/sonidor.iss.rw/header.php:2) in /home/iss/public_html/sonidor.iss.rw/header.php on line 6
+[07-Oct-2024 21:51:02 UTC] PHP Warning:  mysqli::__construct(): (HY000/2002): Connection refused in /home/iss/public_html/sonidor.iss.rw/dbcon.php on line 9
+[07-Oct-2024 21:51:02 UTC] PHP Warning:  mysqli::__construct(): (HY000/2002): Connection refused in /home/iss/public_html/sonidor.iss.rw/dbcon.php on line 9
+[09-Oct-2024 18:59:41 UTC] PHP Warning:  Undefined array key "username" in /home/iss/public_html/sonidor.iss.rw/index.php on line 6
+[09-Oct-2024 18:59:41 UTC] PHP Warning:  Undefined array key "password" in /home/iss/public_html/sonidor.iss.rw/index.php on line 7
+[24-Oct-2024 07:29:19 UTC] PHP Warning:  Undefined variable $conn in /home/iss/public_html/sonidor.iss.rw/truck_expense.php on line 42
+[24-Oct-2024 07:29:19 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/iss/public_html/sonidor.iss.rw/truck_expense.php:42
+Stack trace:
+#0 {main}
+  thrown in /home/iss/public_html/sonidor.iss.rw/truck_expense.php on line 42
+[24-Oct-2024 07:29:58 UTC] PHP Warning:  Undefined variable $conn in /home/iss/public_html/sonidor.iss.rw/truck_expense.php on line 42
+[24-Oct-2024 07:29:58 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/iss/public_html/sonidor.iss.rw/truck_expense.php:42
+Stack trace:
+#0 {main}
+  thrown in /home/iss/public_html/sonidor.iss.rw/truck_expense.php on line 42
+[24-Oct-2024 07:30:51 UTC] PHP Warning:  Undefined variable $conn in /home/iss/public_html/sonidor.iss.rw/truck_expense.php on line 42
+[24-Oct-2024 07:30:51 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/iss/public_html/sonidor.iss.rw/truck_expense.php:42
+Stack trace:
+#0 {main}
+  thrown in /home/iss/public_html/sonidor.iss.rw/truck_expense.php on line 42
+[24-Oct-2024 07:30:51 UTC] PHP Warning:  Undefined variable $conn in /home/iss/public_html/sonidor.iss.rw/truck_expense.php on line 42
+[24-Oct-2024 07:30:51 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/iss/public_html/sonidor.iss.rw/truck_expense.php:42
+Stack trace:
+#0 {main}
+  thrown in /home/iss/public_html/sonidor.iss.rw/truck_expense.php on line 42
+[24-Oct-2024 07:33:27 UTC] PHP Warning:  Undefined variable $conn in /home/iss/public_html/sonidor.iss.rw/truck_expense.php on line 42
+[24-Oct-2024 07:33:27 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/iss/public_html/sonidor.iss.rw/truck_expense.php:42
+Stack trace:
+#0 {main}
+  thrown in /home/iss/public_html/sonidor.iss.rw/truck_expense.php on line 42
+[24-Oct-2024 07:54:43 UTC] PHP Warning:  Undefined array key "truck" in /home/iss/public_html/sonidor.iss.rw/truck_add.php on line 6
+[24-Oct-2024 07:54:43 UTC] PHP Warning:  Undefined array key "truck_owner" in /home/iss/public_html/sonidor.iss.rw/truck_add.php on line 7
+[24-Oct-2024 08:12:32 UTC] PHP Warning:  include(db_connection.php): Failed to open stream: No such file or directory in /home/iss/public_html/sonidor.iss.rw/truck_expense.php on line 132
+[24-Oct-2024 08:12:32 UTC] PHP Warning:  include(): Failed opening 'db_connection.php' for inclusion (include_path='.:/opt/cpanel/ea-php80/root/usr/share/pear') in /home/iss/public_html/sonidor.iss.rw/truck_expense.php on line 132
+[24-Oct-2024 09:19:53 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/iss/public_html/sonidor.iss.rw/view_trip.php on line 142
+[24-Oct-2024 09:19:53 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/iss/public_html/sonidor.iss.rw/view_trip.php on line 146
+[24-Oct-2024 09:26:12 UTC] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/iss/public_html/sonidor.iss.rw/edit_trip.php:120
+Stack trace:
+#0 {main}
+  thrown in /home/iss/public_html/sonidor.iss.rw/edit_trip.php on line 120
+[24-Oct-2024 09:26:25 UTC] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/iss/public_html/sonidor.iss.rw/edit_trip.php:120
+Stack trace:
+#0 {main}
+  thrown in /home/iss/public_html/sonidor.iss.rw/edit_trip.php on line 120
+[24-Oct-2024 09:27:40 UTC] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/iss/public_html/sonidor.iss.rw/edit_trip.php:54
+Stack trace:
+#0 {main}
+  thrown in /home/iss/public_html/sonidor.iss.rw/edit_trip.php on line 54
+[24-Oct-2024 09:40:34 UTC] PHP Fatal error:  Uncaught ArgumentCountError: The number of variables must match the number of parameters in the prepared statement in /home/iss/public_html/sonidor.iss.rw/update_attachment.php:53
+Stack trace:
+#0 /home/iss/public_html/sonidor.iss.rw/update_attachment.php(53): mysqli_stmt->bind_param('ssssi', 'EBM Invoice hos...', 'EBM WORLD BANK ...', 'Actions Require...', 'Invoices 2024VT...', '2')
+#1 {main}
+  thrown in /home/iss/public_html/sonidor.iss.rw/update_attachment.php on line 53
+[24-Oct-2024 09:41:39 UTC] PHP Fatal error:  Uncaught ArgumentCountError: The number of variables must match the number of parameters in the prepared statement in /home/iss/public_html/sonidor.iss.rw/update_attachment.php:57
+Stack trace:
+#0 /home/iss/public_html/sonidor.iss.rw/update_attachment.php(57): mysqli_stmt->bind_param('ssssi', 'EBM Invoice hos...', 'EBM WORLD BANK ...', 'Actions Require...', 'Invoices 2024VT...', '2')
+#1 {main}
+  thrown in /home/iss/public_html/sonidor.iss.rw/update_attachment.php on line 57
+[24-Oct-2024 09:42:28 UTC] PHP Fatal error:  Uncaught ArgumentCountError: The number of variables must match the number of parameters in the prepared statement in /home/iss/public_html/sonidor.iss.rw/update_attachment.php:58
+Stack trace:
+#0 /home/iss/public_html/sonidor.iss.rw/update_attachment.php(58): mysqli_stmt->bind_param('ssssi', 'EBM Invoice hos...', 'EBM WORLD BANK ...', 'Actions Require...', 'Invoices 2024VT...', '2')
+#1 {main}
+  thrown in /home/iss/public_html/sonidor.iss.rw/update_attachment.php on line 58
+[24-Oct-2024 09:58:38 UTC] PHP Warning:  Undefined variable $conn in /home/iss/public_html/sonidor.iss.rw/view_trip.php on line 50
+[24-Oct-2024 09:58:38 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/iss/public_html/sonidor.iss.rw/view_trip.php:50
+Stack trace:
+#0 {main}
+  thrown in /home/iss/public_html/sonidor.iss.rw/view_trip.php on line 50
+[05-Nov-2024 01:58:56 UTC] PHP Warning:  mysqli::__construct(): (HY000/2002): No such file or directory in /home/iss/public_html/sonidor.iss.rw/dbcon.php on line 9
+[11-Nov-2024 10:13:15 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'iss_sonidor_simbaland_user'@'localhost' (using password: YES) in /home/kcvi3184djb5/test.afrisellers.com/dashboard/dbcon.php:9
+Stack trace:
+#0 /home/kcvi3184djb5/test.afrisellers.com/dashboard/dbcon.php(9): mysqli->__construct()
+#1 /home/kcvi3184djb5/test.afrisellers.com/dashboard/index.php(3): include('/home/kcvi3184d...')
+#2 {main}
+  thrown in /home/kcvi3184djb5/test.afrisellers.com/dashboard/dbcon.php on line 9
+[11-Nov-2024 10:15:57 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'test_db.trips' doesn't exist in /home/kcvi3184djb5/test.afrisellers.com/dashboard/dashboard.php:35
+Stack trace:
+#0 /home/kcvi3184djb5/test.afrisellers.com/dashboard/dashboard.php(35): mysqli->query()
+#1 {main}
+  thrown in /home/kcvi3184djb5/test.afrisellers.com/dashboard/dashboard.php on line 35
+[11-Nov-2024 10:20:27 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'test_db.regisrations' doesn't exist in /home/kcvi3184djb5/test.afrisellers.com/dashboard/dashboard.php:35
+Stack trace:
+#0 /home/kcvi3184djb5/test.afrisellers.com/dashboard/dashboard.php(35): mysqli->query()
+#1 {main}
+  thrown in /home/kcvi3184djb5/test.afrisellers.com/dashboard/dashboard.php on line 35
+[11-Nov-2024 10:20:51 UTC] PHP Warning:  Undefined variable $totaltrips in /home/kcvi3184djb5/test.afrisellers.com/dashboard/dashboard.php on line 72
+[11-Nov-2024 10:20:51 UTC] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/kcvi3184djb5/test.afrisellers.com/dashboard/dashboard.php on line 72
+[11-Nov-2024 10:22:58 UTC] PHP Warning:  Undefined variable $totaltrips in /home/kcvi3184djb5/test.afrisellers.com/dashboard/dashboard.php on line 72
+[11-Nov-2024 10:22:58 UTC] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/kcvi3184djb5/test.afrisellers.com/dashboard/dashboard.php on line 72
+[11-Nov-2024 10:23:47 UTC] PHP Warning:  Undefined variable $totaltrips in /home/kcvi3184djb5/test.afrisellers.com/dashboard/dashboard.php on line 72
+[11-Nov-2024 10:23:47 UTC] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/kcvi3184djb5/test.afrisellers.com/dashboard/dashboard.php on line 72
+[11-Nov-2024 10:25:07 UTC] PHP Warning:  Undefined variable $totaltrips in /home/kcvi3184djb5/test.afrisellers.com/dashboard/dashboard.php on line 72
+[11-Nov-2024 10:25:07 UTC] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/kcvi3184djb5/test.afrisellers.com/dashboard/dashboard.php on line 72
+[11-Nov-2024 10:25:51 UTC] PHP Warning:  Undefined variable $totaltrips in /home/kcvi3184djb5/test.afrisellers.com/dashboard/dashboard.php on line 72
+[11-Nov-2024 10:25:51 UTC] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/kcvi3184djb5/test.afrisellers.com/dashboard/dashboard.php on line 72
+[11-Nov-2024 10:27:31 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'test_db.customers' doesn't exist in /home/kcvi3184djb5/test.afrisellers.com/dashboard/customer.php:55
+Stack trace:
+#0 /home/kcvi3184djb5/test.afrisellers.com/dashboard/customer.php(55): mysqli->query()
+#1 {main}
+  thrown in /home/kcvi3184djb5/test.afrisellers.com/dashboard/customer.php on line 55
+[11-Nov-2024 10:27:45 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'test_db.truck' doesn't exist in /home/kcvi3184djb5/test.afrisellers.com/dashboard/truck.php:55
+Stack trace:
+#0 /home/kcvi3184djb5/test.afrisellers.com/dashboard/truck.php(55): mysqli->query()
+#1 {main}
+  thrown in /home/kcvi3184djb5/test.afrisellers.com/dashboard/truck.php on line 55
+[11-Nov-2024 10:27:56 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'test_db.customers' doesn't exist in /home/kcvi3184djb5/test.afrisellers.com/dashboard/customer.php:55
+Stack trace:
+#0 /home/kcvi3184djb5/test.afrisellers.com/dashboard/customer.php(55): mysqli->query()
+#1 {main}
+  thrown in /home/kcvi3184djb5/test.afrisellers.com/dashboard/customer.php on line 55
+[11-Nov-2024 10:31:54 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'id' in 'order clause' in /home/kcvi3184djb5/test.afrisellers.com/dashboard/applications.php:54
+Stack trace:
+#0 /home/kcvi3184djb5/test.afrisellers.com/dashboard/applications.php(54): mysqli->query()
+#1 {main}
+  thrown in /home/kcvi3184djb5/test.afrisellers.com/dashboard/applications.php on line 54
+[11-Nov-2024 10:32:27 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'id' in 'order clause' in /home/kcvi3184djb5/test.afrisellers.com/dashboard/applications.php:29
+Stack trace:
+#0 /home/kcvi3184djb5/test.afrisellers.com/dashboard/applications.php(29): mysqli->query()
+#1 {main}
+  thrown in /home/kcvi3184djb5/test.afrisellers.com/dashboard/applications.php on line 29
+[11-Nov-2024 10:39:54 UTC] PHP Warning:  Undefined array key "id" in /home/kcvi3184djb5/test.afrisellers.com/dashboard/applications.php on line 84
+[11-Nov-2024 10:39:54 UTC] PHP Warning:  Undefined array key "id" in /home/kcvi3184djb5/test.afrisellers.com/dashboard/applications.php on line 89

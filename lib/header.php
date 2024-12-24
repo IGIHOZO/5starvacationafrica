@@ -64,15 +64,18 @@ error_reporting(E_ALL);
                 <div class="navbar-nav ms-auto py-0">
                     <a href="index.php" class="nav-item nav-link active">Home</a>
                     <a href="about.php" class="nav-item nav-link">About</a>
-                    <a href="service.php" class="nav-item nav-link">Services</a>
+                    <a href="destination.php" class="nav-item nav-link">Destinations</a>
+                    <!-- <a href="service.php" class="nav-item nav-link">Services</a> -->
                     <a href="package.php" class="nav-item nav-link">Packages</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">More Services</a>
                         <div class="dropdown-menu m-0">
-                            <a href="destination.php" class="dropdown-item">Destination</a>
-                            <a href="booking.php" class="dropdown-item">Booking</a>
+                            <a href="booking.php" class="dropdown-item">Book Now</a>
                             <a href="team.php" class="dropdown-item">Travel Guides</a>
                             <a href="testimonial.php" class="dropdown-item">Testimonial</a>
+                            <a href="#" class="dropdown-item"></a>
+                            <a href="training.php" class="dropdown-item">Trainings</a>
+                            <a href="internship.php" class="dropdown-item">Internships</a>
                         </div>
                     </div>
                     <a href="#Contact" class="nav-item nav-link">Contact</a>

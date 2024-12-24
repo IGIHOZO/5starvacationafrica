@@ -1,0 +1,42 @@
+[11-Nov-2024 09:37:51 UTC] PHP Warning:  Undefined array key "country_of_residence" in /home/kcvi3184djb5/test.afrisellers.com/register.php on line 145
+[11-Nov-2024 09:40:20 UTC] PHP Warning:  Undefined array key "country_of_residence" in /home/kcvi3184djb5/test.afrisellers.com/register.php on line 145
+[11-Nov-2024 09:42:50 UTC] PHP Warning:  Undefined array key "country_of_residence" in /home/kcvi3184djb5/test.afrisellers.com/register.php on line 145
+[11-Nov-2024 09:42:50 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'inzu gahanga.pdf','11/11/2024 09:42:50')' at line 2 in /home/kcvi3184djb5/test.afrisellers.com/register.php:164
+Stack trace:
+#0 /home/kcvi3184djb5/test.afrisellers.com/register.php(164): mysqli->query()
+#1 {main}
+  thrown in /home/kcvi3184djb5/test.afrisellers.com/register.php on line 164
+[11-Nov-2024 09:44:30 UTC] PHP Warning:  Undefined array key "country_of_residence" in /home/kcvi3184djb5/test.afrisellers.com/register.php on line 145
+[11-Nov-2024 09:44:30 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'inzu gahanga.pdf','11/11/2024 09:44:30')' at line 2 in /home/kcvi3184djb5/test.afrisellers.com/register.php:164
+Stack trace:
+#0 /home/kcvi3184djb5/test.afrisellers.com/register.php(164): mysqli->query()
+#1 {main}
+  thrown in /home/kcvi3184djb5/test.afrisellers.com/register.php on line 164
+[11-Nov-2024 09:48:31 UTC] PHP Warning:  Undefined array key "country_of_residence" in /home/kcvi3184djb5/test.afrisellers.com/register.php on line 145
+[11-Nov-2024 09:48:31 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'inzu gahanga.pdf')' at line 2 in /home/kcvi3184djb5/test.afrisellers.com/register.php:164
+Stack trace:
+#0 /home/kcvi3184djb5/test.afrisellers.com/register.php(164): mysqli->query()
+#1 {main}
+  thrown in /home/kcvi3184djb5/test.afrisellers.com/register.php on line 164
+[11-Nov-2024 09:49:59 UTC] PHP Warning:  Undefined array key "country_of_residence" in /home/kcvi3184djb5/test.afrisellers.com/register.php on line 151
+[11-Nov-2024 09:49:59 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'inzu gahanga.pdf')' at line 2 in /home/kcvi3184djb5/test.afrisellers.com/register.php:170
+Stack trace:
+#0 /home/kcvi3184djb5/test.afrisellers.com/register.php(170): mysqli->query()
+#1 {main}
+  thrown in /home/kcvi3184djb5/test.afrisellers.com/register.php on line 170
+[11-Nov-2024 09:51:46 UTC] PHP Warning:  Undefined array key "country_of_residence" in /home/kcvi3184djb5/test.afrisellers.com/register.php on line 152
+[11-Nov-2024 10:48:34 UTC] PHP Warning:  Undefined array key "application_id" in /home/kcvi3184djb5/test.afrisellers.com/approve.php on line 13
+[11-Nov-2024 10:48:34 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/kcvi3184djb5/test.afrisellers.com/approve.php on line 47
+[11-Nov-2024 10:48:34 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/kcvi3184djb5/test.afrisellers.com/approve.php on line 49
+[11-Nov-2024 10:48:35 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/kcvi3184djb5/test.afrisellers.com/approve.php on line 65
+[11-Nov-2024 10:48:35 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/kcvi3184djb5/test.afrisellers.com/approve.php on line 65
+[11-Nov-2024 10:48:35 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/kcvi3184djb5/test.afrisellers.com/approve.php on line 83
+[11-Nov-2024 10:48:35 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/kcvi3184djb5/test.afrisellers.com/approve.php on line 83
+[11-Nov-2024 11:17:21 UTC] PHP Warning:  Undefined array key "end_start" in /home/kcvi3184djb5/test.afrisellers.com/approve.php on line 53
+[11-Nov-2024 12:38:42 UTC] PHP Warning:  Undefined array key "internship_level" in /home/kcvi3184djb5/test.afrisellers.com/register.php on line 154
+[11-Nov-2024 12:58:36 UTC] PHP Warning:  Undefined array key "internship_level" in /home/kcvi3184djb5/test.afrisellers.com/register.php on line 154
+[11-Nov-2024 12:58:36 UTC] PHP Warning:  Undefined array key "type_of_interneship" in /home/kcvi3184djb5/test.afrisellers.com/register.php on line 155
+[12-Nov-2024 15:54:10 UTC] PHP Warning:  Undefined array key "type_of_interneship" in /home/kcvi3184djb5/firstclasstours.afrisellers.com/register.php on line 161
+[17-Nov-2024 08:31:34 UTC] PHP Warning:  Undefined array key "department" in /home/kcvi3184djb5/firstclasstours.afrisellers.com/register.php on line 178
+[17-Nov-2024 08:31:34 UTC] PHP Warning:  Undefined array key "internship_level" in /home/kcvi3184djb5/firstclasstours.afrisellers.com/register.php on line 179
+[17-Nov-2024 08:31:34 UTC] PHP Warning:  Undefined array key "type_of_interneship" in /home/kcvi3184djb5/firstclasstours.afrisellers.com/register.php on line 180

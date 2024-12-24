@@ -128,7 +128,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <h5 class="font-weight-bold mb-4">Booking Information</h5>
                 <p><strong>Price per Package:</strong> $<span id="unit-price-booking"><?php echo $price; ?></span></p>
                 <p><strong>Total Cost:</strong> $<span id="total-price"><?php echo $price; ?></span></p>
-                
+
                 <!-- Booking Form -->
                 <form id="booking-form" action="package-details.php" method="POST" class="booking-form">
                     <div class="form-group">
@@ -148,7 +148,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <input type="hidden" name="total_price" id="total-price-input" value="<?=$price;?>">
                     <input type="hidden" name="quantity" value="1" id="quantity-input">
 
-                    <button onclick="alert(<?=$price?>)" class="btn btn-primary w-100 mt-4 py-3 font-weight-bold">Submit Booking</button>
+                    <!-- Terms and Conditions Checkbox -->
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="agree-terms" required>
+                        <label class="form-check-label" for="agree-terms">
+                            I have read and agree to the <a href="conditions.php" target="_blank">Terms and Conditions</a>.
+                        </label>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn btn-primary w-100 mt-4 py-3 font-weight-bold" id="submit-booking" disabled>Submit Booking</button>
                 </form>
             </div>
         </div>
@@ -180,6 +189,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Initialize total price
     updateTotalPrice();
+
+
+    document.getElementById('agree-terms').addEventListener('change', function() {
+        var submitButton = document.getElementById('submit-booking');
+        submitButton.disabled = !this.checked;
+    });
 </script>
 
 <!-- Booking Form Styling -->
