@@ -16,7 +16,7 @@ echo "</div>";
                 <div class="card-body">
                     <form action="https://www.afripay.africa/checkout/index.php" method="post" id="afripayform">
                         <input type="hidden" name="amount" value="<?=$_POST['totalPrice']?>" >
-                        <input type="hidden" name="currency" value="RWF" >
+                        <input type="hidden" name="currency" value="USD" >
                         <input type="hidden" name="comment" value="Order <?=$_POST['packageId']?>">
                         <input type="hidden" name="client_token" value="<?=uniqid()?>" >
                         <input type="hidden" name="return_url" value="https://5starvacationafrica.com" >
