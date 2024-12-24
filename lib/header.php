@@ -74,13 +74,14 @@ error_reporting(E_ALL);
                             <a href="team.php" class="dropdown-item">Travel Guides</a>
                             <a href="testimonial.php" class="dropdown-item">Testimonial</a>
                             <a href="#" class="dropdown-item"></a>
-                            <a href="training.php" class="dropdown-item">Trainings</a>
-                            <a href="internship.php" class="dropdown-item">Internships</a>
+                            <a href="application" class="dropdown-item">Trainings</a>
+                            <a href="application" class="dropdown-item">Internships</a>
                         </div>
                     </div>
-                    <a href="#Contact" class="nav-item nav-link">Contact</a>
+                    <a href="application" style="text-decoration: underline;" class="nav-item nav-link">Trainings</a>
+                    <a href="application" style="text-decoration: underline;" class="nav-item nav-link">Internships</a>
                 </div>
-                <a href="#" class="btn btn-primary rounded-pill py-2 px-4 mx-2">Register</a>
+                <!-- <a href="#" class="btn btn-primary rounded-pill py-2 px-4 mx-2">Register</a> -->
                 <a href="admin" target="_blank" class="btn btn-outline-secondary rounded-pill py-2 px-4">Login</a>
             </div>
         </nav>
