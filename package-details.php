@@ -158,7 +158,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <!-- JS to handle price updates -->
 <script>
     // Get DOM elements for price and number of packages
-    const unitPrice = parseFloat(document.getElementById('unit-price').innerText);
+    // const unitPrice = parseFloat(document.getElementById('unit-price').innerText);
+    const oldprice = "<?=$price?>";
+    const unitPrice = parseInt(oldprice.replace(/,/g, '').split('.')[0], 10); // Remove commas, split at decimal, and parse integer
+
     const numPackagesInput = document.getElementById('num-packages');
     const totalPriceSpan = document.getElementById('total-price');
     const totalPriceInput = document.getElementById('total-price-input');
