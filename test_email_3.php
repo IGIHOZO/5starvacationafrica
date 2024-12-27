@@ -11,7 +11,7 @@ try {
     $mail->Host = 'mail.5starvacationafrica.com'; // Set the SMTP server
     $mail->SMTPAuth = true;
     $mail->Username = 'no-reply@5starvacationafrica.com'; // Your email address
-    $mail->Password = 'Igihozo!#07'; // Your email password
+    $mail->Password = ''; // Your email password
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
     $mail->Port = 465; // SMTP Port
 
